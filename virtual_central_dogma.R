@@ -1,6 +1,8 @@
 # Load needed libraries
 
 library("shiny")
+library("bslib")
+library("ggplot2")
 
 # Load needed functions
 source(file = "app_functions.R")

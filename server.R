@@ -15,4 +15,17 @@ server <- function(input, output) {
   output$protein <- renderText({
     translate_rna(input$rna_i)
   })
+  
+  output$base_counts <- renderPlot({
+    ggplot(
+      base_freqs(dna = input$dna_for_counts),
+      aes(x = dna_vec, y = Freq, fill = dna_vec)
+    ) +
+      geom_col() +
+      labs(
+        x = "Base",
+        y = "Frequency",
+        fill = "DNA Base"
+      )
+  })
 }

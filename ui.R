@@ -89,5 +89,23 @@ ui <- page_fluid(
       mainPanel(
         verbatimTextOutput(outputId = "protein")
       )
-    )))
+    )),
+  layout_columns(
+    col_widths = 12,
+    card(
+      card_header("Simple base counts input"),
+      mainPanel(
+        textInput(inputId = "dna_for_counts",
+                  label = "Please paste your DNA sequence")
+      )
+    )),
+  layout_columns(
+    col_widths = 12,
+    card(
+      card_header("Simple base counts output"),
+      mainPanel(
+        plotOutput(outputId = "base_counts")
+      )
+    ))
+)
   
