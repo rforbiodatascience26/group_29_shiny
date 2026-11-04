@@ -1,9 +1,14 @@
 ui <- page_fluid(
+  setBackgroundColor(
+    color = c("#C9A0DC", "#E6E6FA"),
+    gradient = "linear",
+    direction = "bottom"
+  ),
   layout_columns(
     col_widths = 12,
     card(
       titlePanel("Virtual Central Dogma"),
-      style = "background-color: #8087AA; padding: 15px;"
+      style = "background-color: #9D81BA; padding: 15px;"
     )),
   layout_columns(
     col_widths = 12,

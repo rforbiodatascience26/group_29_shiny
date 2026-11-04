@@ -1,6 +1,7 @@
 # Load needed libraries
 
 library("shiny")
+library("shinyWidgets")
 library("bslib")
 library("ggplot2")
 
