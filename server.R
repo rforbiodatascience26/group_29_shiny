@@ -22,14 +22,15 @@ server <- function(input, output) {
       aes(x = dna_vec, y = Freq, fill = dna_vec)
     ) +
       geom_col() +
+      theme_classic() +
       theme(legend.position="none") +
       labs(
         x = "Aminoacid",
         y = "Frequency",
         fill = "Aminoacid"
       ) +
-      theme(axis.title.x=element_text(size = 15)) +
-      theme(axis.title.y=element_text(size = 15)) +
+      theme(axis.title.x=element_text(size = 17)) +
+      theme(axis.title.y=element_text(size = 17)) +
       theme(axis.text=element_text(size=12))
   })
 }
