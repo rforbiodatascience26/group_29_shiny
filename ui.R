@@ -1,111 +1,102 @@
+library(shiny)
+library(bslib)
+
 ui <- page_fluid(
+  
   layout_columns(
     col_widths = 12,
     card(
-      titlePanel("Virtual Central Dogma"),
-      style = "background-color: #8087AA; padding: 15px;"
-    )),
+      h2("Virtual Central Dogma"),
+      style = "background-color: #8087AA; padding: 16px;"
+    )
+  ),
+  
   layout_columns(
     col_widths = 12,
     card(
-      titlePanel("Welcome to Virtual Central Dogma!"),
+      h3("Welcome to Virtual Central Dogma!"),
       helpText("Make your own gene and turn it into RNA and Protein!")
-    )),
+    )
+  ),
+  
   layout_columns(
-    col_widths = 10,
+    col_widths = 12,
     card(
       card_header("Virtual Gene Generator"),
       sliderInput(inputId = "n_bases",
                   label = "Number of bases:",
-                  min = 3,
-                  max = 60,
-                  value = 30,
-                  step = 3),
+                  min = 3, max = 60, value = 30, step = 3),
       layout_columns(
         col_widths = c(3, 3, 3, 3),
-        numericInput(inputId = "prob_A",
-                     label = "Probability of A",
-                     value = 0.25,
-                     min = 0,
-                     max = 1,
-                     step = 0.1),
-        numericInput(inputId = "prob_T",
-                     label = "Probability of T",
-                     value = 0.25,
-                     min = 0,
-                     max = 1,
-                     step = 0.1),
-        numericInput(inputId = "prob_C",
-                     label = "Probability of C",
-                     value = 0.25,
-                     min = 0,
-                     max = 1,
-                     step = 0.1),
-        numericInput(inputId = "prob_G",
-                     label = "Probability of G",
-                     value = 0.25,
-                     min = 0,
-                     max = 1,
-                     step = 0.1)
-      ))),
+        numericInput("prob_A", "Probability of A", value = 0.25, min = 0, max = 1, step = 0.1),
+        numericInput("prob_T", "Probability of T", value = 0.25, min = 0, max = 1, step = 0.1),
+        numericInput("prob_C", "Probability of C", value = 0.25, min = 0, max = 1, step = 0.1),
+        numericInput("prob_G", "Probability of G", value = 0.25, min = 0, max = 1, step = 0.1)
+      )
+    )
+  ),
+  
   layout_columns(
     col_widths = 12,
     card(
       card_header("Virtual Gene output"),
-      mainPanel(
-        verbatimTextOutput(outputId = "dna")
-      )
-    )),
+      verbatimTextOutput("dna")
+    )
+  ),
+  
   layout_columns(
     col_widths = 12,
+      card_header("Enter a RNA sequence"),
+      style = "text-align: center;  font-size: 18px; font-weight: bold"
+      
+    )
+  ,
+    layout_columns(
+    col_widths = 12,
     card(
-      card_header("Virtual RNA input"),
-      textInput(inputId = "dna_i",
-                label = "Please paste your DNA sequence")
-      )
-    ),
+      textInput("dna_i", "Please paste your DNA sequence")
+    )
+  ),
+  
   layout_columns(
     col_widths = 12,
     card(
       card_header("Virtual RNA output"),
-      mainPanel(
-        verbatimTextOutput(outputId = "rna")
-      )
-    )),
+      verbatimTextOutput("rna")
+    )
+  ),
+  
   layout_columns(
     col_widths = 12,
-    card(
-      card_header("Virtual Protein input"),
-      textInput(inputId = "rna_i",
-                label = "Please paste your RNA sequence"),
-      mainPanel(
-        verbatimTextOutput(outputId = "protein")
-      )
-    )),
+    card_header("Enter a protein sequence"),
+    style = "text-align: center;  font-size: 18px; font-weight: bold"),
+  
   layout_columns(
     col_widths = 12,
     card(
       card_header("Virtual Protein output"),
-      mainPanel(
-        verbatimTextOutput(outputId = "protein")
-      )
-    )),
+      verbatimTextOutput("protein")
+    )
+  ),
+  
   layout_columns(
     col_widths = 12,
     card(
       card_header("Simple base counts input"),
-      mainPanel(
-        textInput(inputId = "dna_for_counts",
-                  label = "Please paste your DNA sequence")
-      )
-    )),
+      textInput("dna_for_counts", "Please paste your DNA sequence")
+    )
+  ),
+  
+  layout_columns(
+    col_widths = 12,
+    card_header("Simple base counts"),
+    style = "text-align: center;  font-size: 18px; font-weight: bold"),
+  
   layout_columns(
     col_widths = 12,
     card(
       card_header("Simple base counts output"),
-      mainPanel(
-        plotOutput(outputId = "base_counts")
-      )
-    ))
+      plotOutput("base_counts")
+    )
+  )
 )
-  
