@@ -1,3 +1,8 @@
+library("shiny")
+library("shinyWidgets")
+library("bslib")
+library("ggplot2")
+
 # Virtual gene
 gene_dna <- function(length, base_probs = c(0.25, 0.25, 0.25, 0.25)){
   if( length %% 3 != 0 ){
