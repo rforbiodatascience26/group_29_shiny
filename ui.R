@@ -10,21 +10,18 @@ ui <- page_fluid(
   layout_columns(
     col_widths = 12,
     card(
-      titlePanel("Virtual Central Dogma"),
-      style = "background-color: #9D81BA; padding: 15px;"
+      titlePanel(h1(strong("Virtual Central Dogma"), align = "center")),
+      helpText("Software design for user to create a random DNA sequence and transform it into RNA and protein"),
+      style = "font-size: 20px; text-align: center; background-color: #8087AA"
     )),
   layout_columns(
     col_widths = 12,
-    card(
-      h3("Welcome to Virtual Central Dogma!"),
-      helpText("Make your own gene and turn it into RNA and Protein!")
-    )
-  ),
-  
+    card_header("DNA sequence generator",
+                style = "text-align: center; font-weight: bold; font-size: 18px;")
+    ),
   layout_columns(
     col_widths = 12,
     card(
-      card_header("Virtual Gene Generator"),
       sliderInput(inputId = "n_bases",
                   label = "Number of bases:",
                   min = 3, max = 60, value = 30, step = 3),
@@ -41,11 +38,11 @@ ui <- page_fluid(
   layout_columns(
     col_widths = 12,
     card(
-      card_header("Virtual Gene output"),
-      verbatimTextOutput("dna")
-    )
-  ),
-  
+      card_header("Generated sequence"),
+      mainPanel(
+        verbatimTextOutput(outputId = "dna")
+      )
+    )),
   layout_columns(
     col_widths = 12,
       card_header("Enter a RNA sequence"),
