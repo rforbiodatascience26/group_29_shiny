@@ -2,15 +2,17 @@ library(shiny)
 library(bslib)
 
 ui <- page_fluid(
-  
+  setBackgroundColor(
+    color = c("#C9A0DC", "#E6E6FA"),
+    gradient = "linear",
+    direction = "bottom"
+  ),
   layout_columns(
     col_widths = 12,
     card(
-      h2("Virtual Central Dogma"),
-      style = "background-color: #8087AA; padding: 16px;"
-    )
-  ),
-  
+      titlePanel("Virtual Central Dogma"),
+      style = "background-color: #9D81BA; padding: 15px;"
+    )),
   layout_columns(
     col_widths = 12,
     card(
@@ -99,4 +101,20 @@ ui <- page_fluid(
       plotOutput("base_counts")
     )
   )
+)
+      card_header("Virtual aminoacid sequence input"),
+      mainPanel(
+        textInput(inputId = "aa_for_counts",
+                  label = "Please paste your aminoacid sequence")
+      )
+    )),
+  layout_columns(
+    col_widths = 12,
+    card(
+      card_header("Virtual aminoacid counts output"),
+      mainPanel(
+        width = 12,
+        div(plotOutput(outputId = "base_counts"), align = "center")
+      )
+    ))
 )
