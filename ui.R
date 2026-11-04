@@ -1,7 +1,7 @@
-library(tidyverse)
-library(shiny)
-library(shinyWidgets)
-library(bslib)
+library("tidyverse")
+library("shiny")
+library("shinyWidgets")
+library("bslib")
 
 ui <- page_fluid(
   setBackgroundColor(
@@ -74,10 +74,6 @@ ui <- page_fluid(
       textInput(
         inputId = "rna_i",
         label = "Please paste your RNA sequence"),
-      mainPanel(
-        verbatimTextOutput(outputId = "protein")
-      )
-      #style = "text-align: center;  font-size: 18px; font-weight: bold"),
     ),
     
   layout_columns(

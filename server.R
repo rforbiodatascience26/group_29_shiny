@@ -2,6 +2,8 @@ library("shiny")
 library("shinyWidgets")
 library("bslib")
 library("ggplot2")
+source("app_functions.R")
+
 server <- function(input, output) {
   
   output$dna <- renderText({
