@@ -18,14 +18,18 @@ server <- function(input, output) {
   
   output$base_counts <- renderPlot({
     ggplot(
-      base_freqs(dna = input$dna_for_counts),
+      base_freqs(dna = input$aa_for_counts),
       aes(x = dna_vec, y = Freq, fill = dna_vec)
     ) +
       geom_col() +
+      theme(legend.position="none") +
       labs(
-        x = "Base",
+        x = "Aminoacid",
         y = "Frequency",
-        fill = "DNA Base"
-      )
+        fill = "Aminoacid"
+      ) +
+      theme(axis.title.x=element_text(size = 15)) +
+      theme(axis.title.y=element_text(size = 15)) +
+      theme(axis.text=element_text(size=12))
   })
 }

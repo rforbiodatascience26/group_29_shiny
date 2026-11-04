@@ -93,18 +93,19 @@ ui <- page_fluid(
   layout_columns(
     col_widths = 12,
     card(
-      card_header("Simple base counts input"),
+      card_header("Virtual aminoacid sequence input"),
       mainPanel(
-        textInput(inputId = "dna_for_counts",
-                  label = "Please paste your DNA sequence")
+        textInput(inputId = "aa_for_counts",
+                  label = "Please paste your aminoacid sequence")
       )
     )),
   layout_columns(
     col_widths = 12,
     card(
-      card_header("Simple base counts output"),
+      card_header("Virtual aminoacid counts output"),
       mainPanel(
-        plotOutput(outputId = "base_counts")
+        width = 12,
+        div(plotOutput(outputId = "base_counts"), align = "center")
       )
     ))
 )
