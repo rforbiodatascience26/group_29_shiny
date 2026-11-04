@@ -45,7 +45,7 @@ ui <- page_fluid(
     )),
   layout_columns(
     col_widths = 12,
-      card_header("Enter a RNA sequence"),
+      card_header("Enter a DNA sequence"),
       style = "text-align: center;  font-size: 18px; font-weight: bold"
       
     )
@@ -60,58 +60,52 @@ ui <- page_fluid(
   layout_columns(
     col_widths = 12,
     card(
-      card_header("Virtual RNA output"),
+      card_header("RNA output"),
       verbatimTextOutput("rna")
     )
   ),
   
   layout_columns(
     col_widths = 12,
-    card_header("Enter a protein sequence"),
-    style = "text-align: center;  font-size: 18px; font-weight: bold"),
-  
+    card(
+      card_header("Enter a RNA sequence"),
+      textInput(
+        inputId = "rna_i",
+        label = "Please paste your RNA sequence"),
+      mainPanel(
+        verbatimTextOutput(outputId = "protein")
+      )
+      #style = "text-align: center;  font-size: 18px; font-weight: bold"),
+    ),
+    
   layout_columns(
     col_widths = 12,
     card(
-      card_header("Virtual Protein output"),
-      verbatimTextOutput("protein")
+      card_header("Protein output"),
+      mainPanel(
+        verbatimTextOutput("protein")
+      )
     )
   ),
-  
   layout_columns(
     col_widths = 12,
-    card(
-      card_header("Simple base counts input"),
-      textInput("dna_for_counts", "Please paste your DNA sequence")
-    )
-  ),
-  
-  layout_columns(
-    col_widths = 12,
-    card_header("Simple base counts"),
+    card_header("Unique aminoacid counts"),
     style = "text-align: center;  font-size: 18px; font-weight: bold"),
-  
   layout_columns(
     col_widths = 12,
     card(
-      card_header("Simple base counts output"),
-      plotOutput("base_counts")
-    )
-  )
-)
-      card_header("Virtual aminoacid sequence input"),
+      card_header("Aminoacid sequence input"),
       mainPanel(
         textInput(inputId = "aa_for_counts",
                   label = "Please paste your aminoacid sequence")
-      )
     )),
   layout_columns(
     col_widths = 12,
     card(
-      card_header("Virtual aminoacid counts output"),
+      card_header("Aminoacid counts output"),
       mainPanel(
         width = 12,
         div(plotOutput(outputId = "base_counts"), align = "center")
       )
     ))
-)
+)))
